@@ -1,0 +1,18 @@
+# Blueprint Render (optionnel) — permet un déploiement en un clic.
+# Render lira ce fichier si tu utilises "New +" > "Blueprint".
+services:
+  - type: web
+    name: benin-explorer-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONEROO_SECRET_KEY
+        sync: false          # tu la saisis à la main (secret)
+      - key: PRICE
+        value: "3000"
+      - key: CURRENCY
+        value: "XOF"
+      - key: FRONTEND_URL
+        sync: false          # l'URL publique de ton site
